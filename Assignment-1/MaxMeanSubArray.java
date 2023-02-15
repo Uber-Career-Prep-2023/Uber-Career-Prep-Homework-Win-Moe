@@ -2,7 +2,7 @@ public class MaxMeanSubArray {
     /*
     Question 1: MaxMeanSubArray
 
-    Time complexity: O(n*k)  #traversing through the n array, k times
+    Time complexity: O(n^2)  #traversing through the n array, multiple times
     Space complexity: O(n)   #we are inputting an array
 
     Given an array of integers and an integer, k,
@@ -24,6 +24,8 @@ public class MaxMeanSubArray {
 
     //this is kind of the brute force solution but I think there's a way for more efficiency
     //by storing the previous values in the mean calculation.
+
+    //possible efficient implementation by storing the past numbers but no time.
 
     public static double MaxMeanSubArray(int[] arr, int k) {
         if (arr.length < k || k < 1) {
@@ -73,7 +75,7 @@ public class MaxMeanSubArray {
         assert MaxMeanSubArray(new int[]{1, 1, 1, 1, -1, -1, 2, -1, -1, 6}, 5) == 1;
 
 
-        /*
+        /* EDIT THE ILLEGAL ARGUMENT EXCEPTION ASSERTION ////// ****
         //edgecases
         assert MaxMeanSubArray(new int[]{1}, 5) == new IllegalArgumentException("Invalid input");
         assert MaxMeanSubArray(new int[]{}, 1) == new IllegalArgumentException("Invalid input");

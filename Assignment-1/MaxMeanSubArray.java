@@ -1,5 +1,4 @@
-
-public class old {
+public class MaxMeanSubArray {
     /*
     Question 1: MaxMeanSubArray
 
@@ -11,9 +10,9 @@ public class old {
     */
 
     //input int[] arr, int k, and output double value
-    //consider edgecase empty array, return None
+    //consider edgecase empty array, throw exception
     //consider edgecase array size is less than size k (similar to empty),
-    //.  or k is not a valid number we return None
+    //.  or k is not a valid number throw exception
     //no need to consider array of other types or other input k
 
     //use sliding window method of size k
@@ -26,25 +25,27 @@ public class old {
     //this is kind of the brute force solution but I think there's a way for more efficiency
     //by storing the previous values in the mean calculation.
 
-    public static double MaxMeanSubArray(Int[] arr, int k) {
+    public static double MaxMeanSubArray(int[] arr, int k) {
         if (arr.length < k || k < 1) {
-            return null;
+            throw new IllegalArgumentException("Invalid input");
         }
 
-        double maxMeanSum = 0;
+        int maxMeanSum = 0;
+        double maxMean = 0;
 
         //find the meansum of the first three ints
         for (int i = 0; i < k; i++) {
-            maxMeanSum += arr[i]
-            maxMean = maxMeanSum / k
+            maxMeanSum += arr[i];
+            maxMean = maxMeanSum / k;
         }
 
-        int counter = 1
-        int counterUp = 1 + k
+        int counter = 1;
+        int counterUp = 1 + k;
 
-      //sliding window
+        //sliding window
         while (counterUp <= arr.length) {
             double meanSum = 0;
+            double mean = 0;
 
             //get the average
             for (int j = counter; j < counterUp; j++) {
@@ -55,7 +56,7 @@ public class old {
             if (mean > maxMean) {
                 maxMean = mean;
             }
-        //increment counter and counterup
+            //increment counter and counterup
             counter += 1;
             counterUp += 1;
         }
@@ -65,22 +66,27 @@ public class old {
 
     public static void main(String[] args) {
         //test cases provided
-        assert MaxMeanSubArray(int[]{4,5,-3,2,6,1}, 2) == 4.5;
-        /*
-        assert MaxMeanSubArray([4,5,-3,2,6,1], 3) == 3
-        assert MaxMeanSubArray([1, 1, 1, 1, -1, -1, 2, -1, -1], 3) == 1
-        assert MaxMeanSubArray([1, 1, 1, 1, -1, -1, 2, -1, -1, 6], 5) == 1
-#edgecases
-        assert MaxMeanSubArray([1], 5) == None
-        assert MaxMeanSubArray([], 1) == None
-#my own cases
-        assert MaxMeanSubArray([1,2,3], 0) == None
-        assert MaxMeanSubArray([1,2,3], 1) == 3
-        assert MaxMeanSubArray([1,2,3], 3) == 2
-        assert MaxMeanSubArray([-10000,0,10000], 2) == 5000
+        assert MaxMeanSubArray(new int[]{4,5,-3,2,6,1}, 2) == 4.5;
 
-        print("Passed test cases")
+        assert MaxMeanSubArray(new int[]{4,5,-3,2,6,1}, 3) == 3;
+        assert MaxMeanSubArray(new int[]{1, 1, 1, 1, -1, -1, 2, -1, -1}, 3) == 1;
+        assert MaxMeanSubArray(new int[]{1, 1, 1, 1, -1, -1, 2, -1, -1, 6}, 5) == 1;
+
+
+        /*
+        //edgecases
+        assert MaxMeanSubArray(new int[]{1}, 5) == new IllegalArgumentException("Invalid input");
+        assert MaxMeanSubArray(new int[]{}, 1) == new IllegalArgumentException("Invalid input");
+
+        //my own cases
+        assert MaxMeanSubArray(new int[]{1,2,3}, 0) == null;
         */
+
+        assert MaxMeanSubArray(new int[]{1,2,3}, 1) == 3;
+        assert MaxMeanSubArray(new int[]{1,2,3}, 3) == 2;
+        assert MaxMeanSubArray(new int[]{-10000,0,10000}, 2) == 5000;
+
+        System.out.println("Passed test cases");
     }
     /*
     This question took me 25 minutes.

@@ -1,3 +1,5 @@
+import org.junit.Assert;
+
 public class MaxMeanSubArray {
     // Fixed-size sliding window
 
@@ -34,14 +36,14 @@ public class MaxMeanSubArray {
             throw new IllegalArgumentException("Invalid input");
         }
 
-        int maxMeanSum = 0;
+        double maxMeanSum = 0;
         double maxMean = 0;
 
-        // find the meansum of the first three ints
+        // find the meansum of the first k ints
         for (int i = 0; i < k; i++) {
             maxMeanSum += arr[i];
-            maxMean = maxMeanSum / k;
         }
+        maxMean = maxMeanSum / k;
 
         int counter = 1;
         int counterUp = 1 + k;
@@ -70,25 +72,25 @@ public class MaxMeanSubArray {
 
     public static void main(String[] args) {
         // test cases provided
-        assert MaxMeanSubArray(new int[]{4,5,-3,2,6,1}, 2) == 4.5;
+        Assert.assertTrue(MaxMeanSubArray(new int[]{4,5,-3,2,6,1}, 2) == 4.5);
 
-        assert MaxMeanSubArray(new int[]{4,5,-3,2,6,1}, 3) == 3;
-        assert MaxMeanSubArray(new int[]{1, 1, 1, 1, -1, -1, 2, -1, -1}, 3) == 1;
-        assert MaxMeanSubArray(new int[]{1, 1, 1, 1, -1, -1, 2, -1, -1, 6}, 5) == 1;
+        Assert.assertTrue(MaxMeanSubArray(new int[]{4,5,-3,2,6,1}, 3) == 3);
+        Assert.assertTrue(MaxMeanSubArray(new int[]{1, 1, 1, 1, -1, -1, 2, -1, -1}, 3) == 1);
+        Assert.assertTrue(MaxMeanSubArray(new int[]{1, 1, 1, 1, -1, -1, 2, -1, -1, 6}, 5) == 1);
 
 
         /* EDIT THE ILLEGAL ARGUMENT EXCEPTION ASSERTION // // //  ****
         // edgecases
-        assert MaxMeanSubArray(new int[]{1}, 5) == new IllegalArgumentException("Invalid input");
-        assert MaxMeanSubArray(new int[]{}, 1) == new IllegalArgumentException("Invalid input");
+        Assert.assertTrue(MaxMeanSubArray(new int[]{1}, 5) == new IllegalArgumentException("Invalid input");
+        Assert.assertTrue(MaxMeanSubArray(new int[]{}, 1) == new IllegalArgumentException("Invalid input");
 
         // my own cases
-        assert MaxMeanSubArray(new int[]{1,2,3}, 0) == null;
+        Assert.assertTrue(MaxMeanSubArray(new int[]{1,2,3}, 0) == null;
         */
 
-        assert MaxMeanSubArray(new int[]{1,2,3}, 1) == 3;
-        assert MaxMeanSubArray(new int[]{1,2,3}, 3) == 2;
-        assert MaxMeanSubArray(new int[]{-10000,0,10000}, 2) == 5000;
+        Assert.assertTrue(MaxMeanSubArray(new int[]{1,2,3}, 1) == 3);
+        Assert.assertTrue(MaxMeanSubArray(new int[]{1,2,3}, 3) == 2);
+        Assert.assertTrue(MaxMeanSubArray(new int[]{-10000,0,10000}, 2) == 5000);
 
         System.out.println("Passed test cases");
     }

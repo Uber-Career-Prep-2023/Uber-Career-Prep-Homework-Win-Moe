@@ -1,3 +1,5 @@
+import org.junit.Assert;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -47,9 +49,9 @@ Given a string, reverse the order of the vowels in the string.
         int back = word.length() - 1;
 
         // front < back - 1 because if front and back are the same, the code errors.
-        while (front < back - 1) {
+        while (front < back) {
             char letterFront = word.charAt(front);
-            while (vowels.contains(letterFront)) {
+            while (vowels.contains(letterFront) && front < back) {
                 char letterBack = word.charAt(back);
                 if (vowels.contains(letterBack)) {
                     word = word.substring(0, front) +
@@ -62,7 +64,6 @@ Given a string, reverse the order of the vowels in the string.
                 }
                 back -= 1;
             }
-
             front += 1;
         }
 
@@ -74,20 +75,19 @@ Given a string, reverse the order of the vowels in the string.
         System.out.println(reverseVowels("Uber Career Prep"));
 
         // test cases
-        assert reverseVowels("Uber Career Prep") == "eber Ceraer PrUp";
-        assert reverseVowels("xyz") == "xyz";
-        assert reverseVowels("flamingo") == "flominga";
+        Assert.assertTrue(reverseVowels("Uber Career Prep").equals("eber Ceraer PrUp"));
+        Assert.assertTrue(reverseVowels("xyz").equals("xyz"));
+        Assert.assertTrue(reverseVowels("flamingo").equals("flominga"));
 
         // additional test cases
 
-        assert reverseVowels("1234") == "1234";
-        assert reverseVowels("aAaeEe") == "eEeaAa";
-        assert reverseVowels("Uber is awesome!!!") == "ebor es awisemU!!!";
-        assert reverseVowels("ue") == "eu";
-        assert reverseVowels("aio") == "oia";
+        Assert.assertTrue(reverseVowels("1234").equals("1234"));
+        Assert.assertTrue(reverseVowels("aAaeEe").equals("eEeaAa"));
+        Assert.assertTrue(reverseVowels("Uber is awesome!!!").equals("ebor es awisemU!!!"));
+        Assert.assertTrue(reverseVowels("ue").equals("eu"));
+        Assert.assertTrue(reverseVowels("aio").equals("oia"));
 
         System.out.println("Passed test cases");
-
     }
 
     /*

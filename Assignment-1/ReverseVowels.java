@@ -2,6 +2,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ReverseVowels {
+    // Forward/backward two-pointer
+
     /*
     Question 2: ReverseVowels
 
@@ -40,11 +42,11 @@ Given a string, reverse the order of the vowels in the string.
         vowels.add('O');
         vowels.add('U');
 
-        //two pointers
+        // two pointers
         int front = 0;
         int back = word.length() - 1;
 
-        //front < back - 1 because if front and back are the same, the code errors.
+        // front < back - 1 because if front and back are the same, the code errors.
         while (front < back - 1) {
             char letterFront = word.charAt(front);
             while (vowels.contains(letterFront)) {
@@ -68,15 +70,15 @@ Given a string, reverse the order of the vowels in the string.
     }
 
     public static void main(String[] args) {
-        //first test case print
+        // first test case print
         System.out.println(reverseVowels("Uber Career Prep"));
 
-        //test cases
+        // test cases
         assert reverseVowels("Uber Career Prep") == "eber Ceraer PrUp";
         assert reverseVowels("xyz") == "xyz";
         assert reverseVowels("flamingo") == "flominga";
 
-        //additional test cases
+        // additional test cases
 
         assert reverseVowels("1234") == "1234";
         assert reverseVowels("aAaeEe") == "eEeaAa";

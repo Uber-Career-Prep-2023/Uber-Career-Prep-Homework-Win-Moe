@@ -11,8 +11,8 @@ public class ZeroSumSubArrays {
       /*
     Question 3: ZeroSumSubArrays
     
-    Time complexity: 
-    Space complexity: 
+    Time complexity: O(n log n) - we are traversing the array, but every time we go through it, the length decreases by one
+    Space complexity: O(n) - only one array we are traversing through
 
     Given an array of integers,
     count the number of subarrays that sum to zero.
@@ -78,6 +78,9 @@ public class ZeroSumSubArrays {
         Assert.assertTrue(ZeroSumSubArrays(new int[]{4, 5, 2, -1, -3, -3, 4, 6, -7}) == 2);
         Assert.assertTrue(ZeroSumSubArrays(new int[]{1, 8, 7, 3, 11, 9}) == 0);
         Assert.assertTrue(ZeroSumSubArrays(new int[]{8, -5, 0, -2, 3, -4}) == 2);
+        Assert.assertTrue(ZeroSumSubArrays(new int[]{1, -1, 1}) == 2);
+        Assert.assertTrue(ZeroSumSubArrays(new int[]{1, 0, -1}) == 2);
+        Assert.assertTrue(ZeroSumSubArrays(new int[]{1, -1}) == 1);
 
         // own test cases
         Assert.assertTrue(ZeroSumSubArrays(new int[]{}) == 0);

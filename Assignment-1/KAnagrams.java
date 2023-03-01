@@ -8,8 +8,8 @@ public class KAnagrams {
     /*
     Question 7: KAnagrams
 
-    Time complexity:
-    Space complexity:
+    Time complexity: O(N) - there are only single for loops that go through each character in the String, and one map.
+    Space complexity: O(N) - there is only one hashmap and a couple of variables that assess it very efficiently.
 
     Two strings are considered to be “k-anagrams”
     if they can be made into anagrams by changing at most k characters in one of the strings.

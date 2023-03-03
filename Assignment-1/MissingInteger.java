@@ -20,15 +20,9 @@ public class MissingInteger {
     */
 
     /*
-    base case - if arr.length is one and arr[0] is n,
-     return n
-
-    I will assume that it doesn't start from 0 so return 0 if there is no missing int
-    Try binary search variation
-    recursively call
-
-    use arrays copy of range
-    copyrange made this question a little tougher
+    if arr empty return 0
+    use recursion binary search and int up and down boounds
+    middle
 
 
     */
@@ -37,32 +31,27 @@ public class MissingInteger {
         if (arr.length == 0) {
             return 0;
         }
-        if (arr.length == 1) {
-            if (arr[0] == n) {
-                return 0;
-            } else {
-                return n;
-            }
-        } else {
-            //recursive
-            int arrlen = arr.length;
-            int arrlenhalf = arr.length / 2;
 
-            int[] arr1 = Arrays.copyOfRange(arr,0, arrlenhalf);
-            int[] arr2 = Arrays.copyOfRange(arr, arrlenhalf, arrlen);
+        return helper(arr, n, 0, arr.length - 1);
+    }
 
-            int r1 = missingInteger(arr1, n / 2);
-            int r2 = missingInteger(arr2, n);
-            return r1 + r2;
+    public static int helper(int[] arr, int n, int lower, int upper) {
 
+        if (lower > upper) {
+            return 0;
         }
+        int middle = lower + ((upper - lower) / 2);
+        if (middle - 1 != n) {
+            return middle;
+        }
+        return helper(arr, n, lower, middle - 1) + helper(arr, n, middle + 1, upper);
     }
 
     public static void main(String[] args) {
 
         // first test case print
-        int[] gg = {1,2,4};
-        int result = (missingInteger(gg, 4));
+        int[] gg = {1,2,3,5,6,7};
+        int result = (missingInteger(gg, 7));
 
         System.out.println(result);
 

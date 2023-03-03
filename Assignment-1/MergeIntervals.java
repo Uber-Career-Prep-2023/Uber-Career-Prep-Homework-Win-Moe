@@ -48,18 +48,14 @@ public class MergeIntervals {
         return inputSorted;
                 //List<Map<Integer, Integer>>
 
-        Input: [(2, 3), (4, 8), (1, 2), (5, 7), (9, 12)]
-        Output: [(4, 8), (1, 3), (9, 12)]
-
     }
     public static void main(String[] args) {
         // test print
-        System.out.println(mergeIntervals());
 
         // test cases provided
 
         // own test cases with numbers and different cases
-        Assert.assertTrue(mergeIntervals("Uber@SanFrancisco", "uber#franciscosan", 1) == true);
+        // Assert.assertTrue(mergeIntervals("Uber@SanFrancisco", "uber#franciscosan", 1) == true);
 
 
         System.out.println("Passed test cases");

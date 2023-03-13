@@ -6,8 +6,8 @@ public class MaxMeanSubArray {
     /*
     Question 1: MaxMeanSubArray
 
-    Time complexity: O(n^2) - traversing through the n array, multiple times
-    Space complexity: O(n)  - we are inputting an array
+    Time complexity: O(N^2) - traversing through the n array, multiple times
+    Space complexity: O(N)  - we are inputting an array
 
     Given an array of integers and an integer, k,
     find the maximum mean of a subarray of size k.

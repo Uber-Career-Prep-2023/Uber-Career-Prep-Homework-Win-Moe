@@ -9,8 +9,8 @@ public class BackspaceStringCompare {
       /*
     Question 3: ZeroSumSubArrays
 
-    Time complexity: O(n + n) - traverses two strings one time each
-    Space complexity: O(n + n) - traverses two strings with two hashmaps created
+    Time complexity: O(N) - traverses two strings one time each
+    Space complexity: O(N) - traverses two strings with two hashmaps created
 
     Given two strings representing series of keystrokes, determine whether the resulting text is the same.
     Backspaces are represented by the '#' character so "x#" results in the empty string ("").

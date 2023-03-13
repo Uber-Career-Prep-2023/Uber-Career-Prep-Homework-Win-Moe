@@ -33,8 +33,6 @@ public class TwoSum {
     */
 
     public static int twoSum(int[] arr, int k) {
-
-        /*
         // brute force
         // i was keeping track of pairs
         // Map<Integer, Integer> pairs = new HashMap<>();
@@ -52,8 +50,8 @@ public class TwoSum {
         }
         // System.out.println(pairs);
         return counter;
-        */
 
+        /* failed attempt at efficient method
         // efficient method using hashmap
         Map<Integer, Integer> indexToVal = new HashMap<>();
         int count = 0;
@@ -70,6 +68,8 @@ public class TwoSum {
         }
 
         return count / 2;
+
+         */
     }
 
     public static void main(String[] args) {

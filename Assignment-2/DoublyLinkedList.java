@@ -1,13 +1,12 @@
-import javax.sound.midi.SysexMessage;
-
-public class SinglyLinkedList {
+public class DoublyLinkedList {
     // head Node
     private Node head;
 
-    // HELPER: class Node
+    // helper class Node
     public static class Node {
         // storing int value instance variable and Node next
         private int value;
+        private Node prev;
         private Node next;
 
         // constructor to create a new node with a value
@@ -23,7 +22,7 @@ public class SinglyLinkedList {
     public void testPrint() {
         Node pointer = head;
         while (pointer != null) {
-            System.out.print(pointer.value + " --> ");
+            System.out.print(pointer.value + " <--> ");
             pointer = pointer.next;
         }
         System.out.println();
@@ -33,7 +32,9 @@ public class SinglyLinkedList {
     public Node insertAtFront(Node head, int val) {
         Node newNode = new Node(val);
         // newNode's next to head.
+        // newNode's prev to getLast
         newNode.next = head;
+
         // set the head of the list to newNode
         this.head = newNode;
         return newNode;
@@ -49,8 +50,11 @@ public class SinglyLinkedList {
         while (pointer.next != null) {
             pointer = pointer.next;
         }
+
         // pointer.next is null, so set it to newNode since it's at the end
+        // make newNode's prev to pointer
         pointer.next = newNode;
+        newNode.prev = pointer;
     }
 
     // creates new Node with data val after Node loc
@@ -67,24 +71,33 @@ public class SinglyLinkedList {
         pointer.next = newNode;
         newNode.next = prevNext;
         // if loc is not found, then just insert at the end
+
+        // set the prevs
+        prevNext.prev = newNode;
+        newNode.prev = pointer;
     }
 
     // removes first Node; returns new head
     public Node deleteFront(Node head) {
-        //edgecase if the slllist is empty
+        //edgecase if the dlllist is empty
         if (head == null) {
             return null;
         }
 
         Node newHead = head.next;
+        // set the prev of the newHead to null
+        newHead.prev = null;
+
         // newHead becomes the head
         this.head = newHead;
-        return this.head;
+
+
+        return newHead;
     }
 
     // removes last Node
     public void deleteBack(Node head) {
-        //edgecase if the slllist is empty
+        //edgecase if the dlllist is empty
         if (head == null) {
             return;
         }
@@ -95,6 +108,9 @@ public class SinglyLinkedList {
         while (pointer.next.next != null) {
             pointer = pointer.next;
         }
+
+        // break the prev ties from pointer.next
+        pointer.next.prev = null;
         pointer.next = null;
 
     }
@@ -102,7 +118,7 @@ public class SinglyLinkedList {
     // deletes Node loc; returns head
     public Node deleteNode(Node head, Node loc) {
         // EDGE CASE that the head is the loc
-        if (this.head == loc) {
+        if (head == loc) {
             return deleteFront(head);
         } else {
             Node pointer = head;
@@ -113,6 +129,8 @@ public class SinglyLinkedList {
                 pointer = pointer.next;
             }
             // no problem if loc is never found
+            // set loc's next's prev to pointer instead of loc
+            loc.next.prev = pointer;
             pointer.next = loc.next;
             // loc is lost
             loc = null;
@@ -179,51 +197,49 @@ public class SinglyLinkedList {
     void insertAfter(Node head, int val, Node loc) // creates new Node with data val after Node loc
     Node deleteFront(Node head) // removes first Node; returns new head
     void deleteBack(Node head) // removes last Node
-    Node deleteNode(Node head, Node loc) // deletes Node loc; returns head *** WORK ON THIS ***
+    Node deleteNode(Node head, Node loc) // deletes Node loc; returns head * WORK ON THIS *
     int length(Node head) // returns length of the list
     Node reverseIterative(Node head) // reverses the linked list iteratively
     Node reverseRecursive(Node head) // reverses the linked list recursively (Hint: you will need a helper function)
      */
 
-    // testing main method of the singlylinkedlist class
+    // testing main method of the DLLList class
     public static void main(String[] args) {
-        SinglyLinkedList sll = new SinglyLinkedList();
-        sll.insertAtFront(sll.head, 1);
-        sll.insertAtBack(sll.head, 2);
-        sll.testPrint();
-        System.out.println("Length of list:" + sll.length(sll.head));
-        sll.insertAtFront(sll.head, 0);
-        sll.insertAtBack(sll.head, 3);
-        sll.testPrint();
-        sll.reverseIterative(sll.head);
-        sll.testPrint();
-        sll.reverseRecursive(sll.head);
-        sll.testPrint();
-        sll.deleteBack(sll.head);
-        sll.deleteFront(sll.head);
-        sll.testPrint();
+        DoublyLinkedList dll = new DoublyLinkedList();
+        dll.insertAtFront(dll.head, 1);
+        dll.insertAtBack(dll.head, 2);
+        dll.testPrint();
+        System.out.println("Length of list:" + dll.length(dll.head));
+        dll.insertAtFront(dll.head, 0);
+        dll.insertAtBack(dll.head, 3);
+        dll.testPrint();
+        dll.reverseIterative(dll.head);
+        dll.testPrint();
+        dll.reverseRecursive(dll.head);
+        dll.testPrint();
+        dll.deleteBack(dll.head);
+        dll.deleteFront(dll.head);
+        dll.testPrint();
 
         //test case 2
         System.out.println();
         System.out.println("Test 2: ");
-        SinglyLinkedList sll2 = new SinglyLinkedList();
+        DoublyLinkedList dll2 = new DoublyLinkedList();
         //edgecases delete empty list, returns empty and no error
-        sll2.deleteBack(sll.head);
-        sll2.deleteFront(sll.head);
+        dll2.deleteBack(dll.head);
+        dll2.deleteFront(dll.head);
         // problem with the loc node, currently i just compared them
         Node loc = new Node(0);
-        sll2.head = loc;
-        sll2.insertAfter(sll2.head, 2, loc);
-        sll2.testPrint();
-        sll2.insertAfter(sll2.head, 1, loc);
-        sll2.testPrint();
+        dll2.head = loc;
+        dll2.insertAfter(dll2.head, 2, loc);
+        dll2.testPrint();
+        dll2.insertAfter(dll2.head, 1, loc);
+        dll2.testPrint();
         // it should delete loc, which has a value of 0
-        sll2.deleteNode(sll2.head, loc);
-        sll2.testPrint();
+        dll2.deleteNode(dll2.head, loc);
+        dll2.testPrint();
         // let's try deleting loc again, since it's not found it is unaffected
-        sll2.deleteNode(sll2.head, loc);
-        sll2.testPrint();
-
-        // TALK ABOUT: WHAT IF THE LINKEDLIST IS CIRCULAR? IT WOULD GO INTO INFINITE LOOP.
+        dll2.deleteNode(dll2.head, loc);
+        dll2.testPrint();
     }
 }

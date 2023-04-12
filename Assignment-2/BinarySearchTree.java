@@ -99,17 +99,19 @@ public class BinarySearchTree {
     int delete(int val) {
         Node pointer = this.head;
         // store the parent so that we can set it
-        Node parent = null;
+        Node parent = this.head;
         // logic - find the node with the value and then when found, activate helper
         while (pointer != null) {
-            if (pointer.value == val) {
+            if (val == pointer.value) {
                 return deleteHelper(pointer, parent);
-            } else if (pointer.value > val) {
+            } else if (val > pointer.value) {
+                parent = pointer;
                 pointer = pointer.right;
             } else {
+                parent = pointer;
                 pointer = pointer.left;
             }
-            parent = pointer;
+
         }
         // the case that it is not found
         return -999999;
@@ -147,11 +149,21 @@ public class BinarySearchTree {
             }
         } else {
             // case that it has more than two children
-            // get the value of the last node in the InOrder
-            Node lastNodeOfInOrder = nodesInOrder.get(nodesInOrder.size() - 1);
-            int newVal = lastNodeOfInOrder.value;
-            delete(newVal);
+            // get the value of the successor node in the InOrder
+            inOrder(node);
+            int successorNodeIndex = 0;
+            for (int i = 0; i < nodesInOrder.size() - 1; i++) {
+                if (nodesInOrder.get(i).value == node.value) {
+                    successorNodeIndex = i + 1;
+                }
+            }
+            Node successorNode = nodesInOrder.get(successorNodeIndex);
+
+
+            int newVal = successorNode.value;
+            this.delete(newVal);
             node.value = newVal;
+            this.nodesInOrder = new ArrayList<>();
         }
 
         return valueDeleted;
@@ -171,7 +183,6 @@ public class BinarySearchTree {
 
 
     public static void main(String[] args) {
-        /*
         Node head = new Node(8);
         BinarySearchTree bst = new BinarySearchTree(head);
         bst.insert(3);
@@ -187,15 +198,16 @@ public class BinarySearchTree {
         System.out.println(bst.contains(6) == false);
         System.out.println(bst.contains(7) == false);
 
-         */
-
         Node h2 = new Node(50);
         BinarySearchTree b2 = new BinarySearchTree(h2);
         b2.insert(40);
         b2.insert(70);
         b2.insert(60);
         b2.insert(80);
-        b2.delete(50);
 
+
+        b2.delete(50);
+        b2.delete(70);
+        b2.delete(80);
     }
 }

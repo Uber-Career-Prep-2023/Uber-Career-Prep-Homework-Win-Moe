@@ -191,7 +191,7 @@ public class DoublyLinkedList {
         }
     }
 
-    /* FUNCTIONS TO TEST
+    /** FUNCTIONS TO TEST
     Node insertAtFront(Node head, int val) // creates new Node with data val at front; returns new head
     void insertAtBack(Node head int val) // creates new Node with data val at end
     void insertAfter(Node head, int val, Node loc) // creates new Node with data val after Node loc

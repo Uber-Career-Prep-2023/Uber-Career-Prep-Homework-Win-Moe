@@ -5,49 +5,57 @@ import java.util.List;
 
 public class BinarySearchTree {
 
-    /** NODE class for BST with prev and next attributes
-     *
-     */
-    public static class Node {
-        // storing int value instance variable and Node next
-        private int value;
-        private Node left;
-        private Node right;
-
-        // constructor to create a new node with a value
-        public Node(int value) {
-            this.value = value;
-        }
-
-        public Node() {
-        }
-    }
-
-    /** END OF NODE CLASS */
-
     // instance variable for head
-    private Node head;
+    private BSTNode head;
+
 
     // constructor
-    public BinarySearchTree(Node head) {
+    public BinarySearchTree(BSTNode head) {
         this.head = head;
+    }
+
+    // helper method to get head
+    public BSTNode getHead() {
+        return head;
     }
 
     // returns the minimum value in the BST
     int min() {
-        return 0;
+        if (head == null) {
+            return 0;
+        }
+        BSTNode pointer = head;
+        return minHelper(pointer);
+    }
+    int minHelper(BSTNode pointer) {
+        if (pointer.left == null) {
+            return pointer.value;
+        } else {
+            return minHelper(pointer.left);
+        }
     }
 
     // returns the maximum value in the BST
     int max() {
-        return 0;
+        if (head == null) {
+            return 0;
+        }
+        BSTNode pointer = head;
+        return maxHelper(pointer);
+    }
+    int maxHelper(BSTNode pointer) {
+        if (pointer.right == null) {
+            return pointer.value;
+        } else {
+            return maxHelper(pointer.right);
+        }
     }
 
     // returns a boolean indicating whether val is present in the BST
 
     boolean contains(int val) {
         // pointer moves through left or right depending on value and pointer's value
-        Node pointer = head;
+        BSTNode pointer = head;
         while (pointer != null) {
             if (pointer.value == val) {
                 return true;
@@ -62,16 +70,16 @@ public class BinarySearchTree {
         return false;
     }
 
-    // creates a new Node with data val in the appropriate location
+    // creates a new BSTNode with data val in the appropriate location
     // For simplicity, do not allow duplicates. If val is already present, insert is a no-op
     void insert(int val) {
         // pointer checks where to put depending on BST rules
-        // if val > pointer, go until null, set pointer's right to the new node
-        Node newNode = new Node(val);
-        Node pointer = head;
+        // if val > pointer, go until null, set pointer's right to the new BSTNode
+        BSTNode newNode = new BSTNode(val);
+        BSTNode pointer = head;
 
-        // store the last node to pick pointer's location
-        Node lastNode = null;
+        // store the last BSTNode to pick pointer's location
+        BSTNode lastNode = null;
 
         while (pointer != null) {
             lastNode = pointer;
@@ -97,9 +105,9 @@ public class BinarySearchTree {
 
     // deletes the Node with data val, if it exists
     int delete(int val) {
-        Node pointer = this.head;
+        BSTNode pointer = this.head;
         // store the parent so that we can set it
-        Node parent = this.head;
+        BSTNode parent = this.head;
         // logic - find the node with the value and then when found, activate helper
         while (pointer != null) {
             if (val == pointer.value) {
@@ -118,7 +126,7 @@ public class BinarySearchTree {
         // in order traversal
     }
 
-    int deleteHelper(Node node, Node parent) {
+    int deleteHelper(BSTNode node, BSTNode parent) {
         int valueDeleted = node.value;
         boolean dirLeft;
         // is it on the left or right of the parent
@@ -157,7 +165,7 @@ public class BinarySearchTree {
                     successorNodeIndex = i + 1;
                 }
             }
-            Node successorNode = nodesInOrder.get(successorNodeIndex);
+            BSTNode successorNode = nodesInOrder.get(successorNodeIndex);
 
 
             int newVal = successorNode.value;
@@ -170,9 +178,9 @@ public class BinarySearchTree {
     }
 
     // somewhere to store inOrder
-    private List<Node> nodesInOrder = new ArrayList<>();
+    private List<BSTNode> nodesInOrder = new ArrayList<>();
 
-    void inOrder(Node head) {
+    void inOrder(BSTNode head) {
         if (head == null) {
             return;
         }
@@ -183,31 +191,45 @@ public class BinarySearchTree {
 
 
     public static void main(String[] args) {
-        Node head = new Node(8);
+        BSTNode head = new BSTNode(8);
         BinarySearchTree bst = new BinarySearchTree(head);
         bst.insert(3);
         bst.insert(10);
         bst.insert(14);
         bst.insert(13);
-        System.out.println(bst.contains(13) == true);
-        System.out.println(bst.contains(1) == false);
         bst.insert(1);
         bst.insert(6);
         bst.insert(4);
         bst.insert(7);
-        System.out.println(bst.contains(6) == false);
-        System.out.println(bst.contains(7) == false);
 
-        Node h2 = new Node(50);
+// Test min method
+        System.out.println(bst.min()); // should print 1
+
+// Test max method
+        System.out.println(bst.max()); // should print 14
+
+// Test contains method
+        System.out.println(bst.contains(13)); // should print true
+        System.out.println(bst.contains(1)); // should print true
+        System.out.println(bst.contains(6)); // should print true
+        System.out.println(bst.contains(7)); // should print true
+        System.out.println(bst.contains(15)); // should print false
+
+        BSTNode h2 = new BSTNode(50);
         BinarySearchTree b2 = new BinarySearchTree(h2);
         b2.insert(40);
         b2.insert(70);
         b2.insert(60);
         b2.insert(80);
 
-
+// Test delete method
         b2.delete(50);
+        System.out.println(b2.contains(50)); // should print false
+
         b2.delete(70);
+        System.out.println(b2.contains(70)); // should print false
+
         b2.delete(80);
+        System.out.println(b2.contains(80)); // should print false
     }
 }

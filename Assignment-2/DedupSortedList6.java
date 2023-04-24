@@ -7,16 +7,15 @@ public class DedupSortedList6 {
      *
      * Time taken: 20 minutes
      *
-     * @param head of list
      */
 
     public DedupSortedList6() {
 
     }
 
-    public void dedupSortedList(SinglyLinkedList.Node head) {
+    public void dedupSortedList(SinglyLinkedList sll) {
         // set pointer
-        SinglyLinkedList.Node current = head;
+        SinglyLinkedList.Node current = sll.head;
 
         while (current.next != null) {
             if (current.value == current.next.value) {
@@ -44,7 +43,7 @@ public class DedupSortedList6 {
 
         DedupSortedList6 test1 = new DedupSortedList6();
         // edits the test
-        test1.dedupSortedList(list.head);
+        test1.dedupSortedList(list);
         list.testPrint();
 
         // test 2

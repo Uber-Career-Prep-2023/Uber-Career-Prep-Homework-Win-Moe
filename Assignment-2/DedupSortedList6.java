@@ -2,6 +2,8 @@ public class DedupSortedList6 {
     // Given a sorted singly linked list, remove any duplicates so that no value appears more than once.
 
     /**
+     * reset / catchup two pointer
+     *
      * Time complexity: O(n)
      * Space complexity: O(n)
      *

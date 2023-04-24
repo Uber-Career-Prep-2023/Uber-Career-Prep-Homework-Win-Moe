@@ -1,12 +1,13 @@
 public class MoveNthLastToFront7 {
-    // Given a sorted singly linked list, remove any duplicates so that no value appears more than once.
+    // Given a singly linked list, move the nth from the last element to the front of the list.
 
     /**
+     * fixed distance two pointer approach
+     *
      * Time complexity: O(n)
-     * Space complexity: O(n)
+     * Space complexity: O(1)
      *
      * Time taken: 20 minutes
-     *
      */
 
     public MoveNthLastToFront7() {

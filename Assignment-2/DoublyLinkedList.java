@@ -1,13 +1,13 @@
 public class DoublyLinkedList {
     // head Node
-    private Node head;
+    public Node head;
 
     // helper class Node
     public static class Node {
         // storing int value instance variable and Node next
-        private int value;
-        private Node prev;
-        private Node next;
+        public int value;
+        public Node prev;
+        public Node next;
 
         // constructor to create a new node with a value
         public Node(int value) {
@@ -33,7 +33,13 @@ public class DoublyLinkedList {
         Node newNode = new Node(val);
         // newNode's next to head.
         // newNode's prev to getLast
+        if (head == null) {
+            this.head = newNode;
+            return newNode;
+        }
+
         newNode.next = head;
+        this.head.prev = newNode;
 
         // set the head of the list to newNode
         this.head = newNode;
@@ -44,6 +50,10 @@ public class DoublyLinkedList {
     public void insertAtBack(Node head, int val) {
         Node newNode = new Node(val);
 
+        if (head == null) {
+            this.head = newNode;
+            return;
+        }
         // set pointer to get to the back
         Node pointer = head;
 
@@ -72,15 +82,23 @@ public class DoublyLinkedList {
         newNode.next = prevNext;
         // if loc is not found, then just insert at the end
 
-        // set the prevs
-        prevNext.prev = newNode;
-        newNode.prev = pointer;
+        if (prevNext != null) {
+            // set the prevs
+            prevNext.prev = newNode;
+            newNode.prev = pointer;
+        }
+
     }
 
     // removes first Node; returns new head
     public Node deleteFront(Node head) {
         //edgecase if the dlllist is empty
         if (head == null) {
+            return null;
+        }
+
+        if (head.next == null) {
+            this.head = null;
             return null;
         }
 
@@ -129,11 +147,13 @@ public class DoublyLinkedList {
                 pointer = pointer.next;
             }
             // no problem if loc is never found
-            // set loc's next's prev to pointer instead of loc
-            loc.next.prev = pointer;
-            pointer.next = loc.next;
-            // loc is lost
-            loc = null;
+            if (pointer.next != null) {
+                // set loc's next's prev to pointer instead of loc
+                loc.next.prev = pointer;
+                pointer.next = loc.next;
+                // loc is lost
+                loc = null;
+            }
             return head;
         }
     }
@@ -231,7 +251,9 @@ public class DoublyLinkedList {
         // problem with the loc node, currently i just compared them
         Node loc = new Node(0);
         dll2.head = loc;
-        dll2.insertAfter(dll2.head, 2, loc);
+        //dll2.insertAtBack(dll2.head, 1);
+        dll2.insertAfter(dll2.head, 3, loc); // this line used to error if nothing is after head, but now fixed.
+        dll2.insertAfter(dll2.head, 2, loc); // this line used to error if nothing is after head, but now fixed.
         dll2.testPrint();
         dll2.insertAfter(dll2.head, 1, loc);
         dll2.testPrint();

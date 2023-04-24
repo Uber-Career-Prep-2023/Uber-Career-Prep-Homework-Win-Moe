@@ -5,15 +5,25 @@ import java.util.List;
 
 public class CopyTree4 {
     // Given a binary tree, create a deep copy. Return the root of the new tree.
-    public CopyTree4(BinarySearchTree bst) {
-        this.bst = bst;
-        BSTNode head = bst.getHead();
+
+    /**
+     * Depth-first traversal
+     * Pre-order traversal
+     * Time complexity: O(n)
+     * Space complexity: O(n)
+     *
+     * Time taken: 20-30 minutes
+     *
+     * @param head of bst
+     */
+
+    private BSTNode head;
+
+    public CopyTree4(BSTNode head) {
         this.head = preOrderCopy(head);
     }
 
     // instance variables
-    private BinarySearchTree bst;
-    private BSTNode head;
 
     public BSTNode preOrderCopy(BSTNode root) {
         if (root == null) {
@@ -31,6 +41,7 @@ public class CopyTree4 {
     }
 
     public static void main(String[] args) {
+        // test the tree
         BSTNode head = new BSTNode(50);
         BinarySearchTree bst = new BinarySearchTree(head);
         bst.insert(40);
@@ -38,8 +49,25 @@ public class CopyTree4 {
         bst.insert(60);
         bst.insert(80);
 
-        CopyTree4 copyTree = new CopyTree4(bst);
+        CopyTree4 copyTree = new CopyTree4(bst.getHead());
         BSTNode test = copyTree.getHead();
+
+
+
+        // test a tree, but not a BST
+        // test 2 on custom wrong node
+        BSTNode head2 = new BSTNode(50);
+        BSTNode wrongLeft = new BSTNode(80);
+        BSTNode wrongRight = new BSTNode(40);
+        head2.left = wrongLeft;
+        head2.right = wrongRight;
+        CopyTree4 copyTree2 = new CopyTree4(head2);
+        BSTNode test2 = copyTree2.getHead();
+
+        // test on null, no error
+        CopyTree4 copyTree3 = new CopyTree4(null);
+        BSTNode test3 = copyTree3.getHead();
+
     }
 
 }

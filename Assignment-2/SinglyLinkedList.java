@@ -1,12 +1,12 @@
 public class SinglyLinkedList {
     // head Node
-    private Node head;
+    public Node head;
 
     // HELPER: class Node
     public static class Node {
         // storing int value instance variable and Node next
-        private int value;
-        private Node next;
+        public int value;
+        public Node next;
 
         // constructor to create a new node with a value
         public Node(int value) {
@@ -40,6 +40,12 @@ public class SinglyLinkedList {
     // creates new Node with data val at end
     public void insertAtBack(Node head, int val) {
         Node newNode = new Node(val);
+
+        // if the head is null then just make this the head.
+        if (head == null) {
+            this.head = newNode;
+            return;
+        }
 
         // set pointer to get to the back
         Node pointer = head;
@@ -110,9 +116,13 @@ public class SinglyLinkedList {
             while (pointer.next != loc && pointer.next != null) {
                 pointer = pointer.next;
             }
-            // no problem if loc is never found
+            // no problem if loc is never found if the pointer is at null then we just return nothing
+            if (pointer.next == null) {
+                return null;
+            }
+
+            // switch the pointers to skip over loc
             pointer.next = loc.next;
-            // loc is lost
             loc = null;
             return head;
         }
@@ -185,6 +195,7 @@ public class SinglyLinkedList {
 
     // testing main method of the singlylinkedlist class
     public static void main(String[] args) {
+        // test case 1
         SinglyLinkedList sll = new SinglyLinkedList();
         sll.insertAtFront(sll.head, 1);
         sll.insertAtBack(sll.head, 2);
@@ -200,6 +211,14 @@ public class SinglyLinkedList {
         sll.deleteBack(sll.head);
         sll.deleteFront(sll.head);
         sll.testPrint();
+
+        // test case in between, we want to try inserting at back, which initially failed
+        SinglyLinkedList sll0 = new SinglyLinkedList();
+        sll0.insertAtBack(sll0.head, 1);
+        sll0.insertAtBack(sll0.head, 0);
+        sll0.insertAtFront(sll0.head, 1);
+        sll0.testPrint();
+
 
         //test case 2
         System.out.println();

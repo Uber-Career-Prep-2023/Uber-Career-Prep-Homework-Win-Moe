@@ -10,7 +10,7 @@ public class DisconnectCycle9 {
      * Time complexity: O(N)
      * Space complexity: O(N)
      *
-     * Time taken: 20-30 minutes
+     * Time taken: 15 minutes
      *
      */
 

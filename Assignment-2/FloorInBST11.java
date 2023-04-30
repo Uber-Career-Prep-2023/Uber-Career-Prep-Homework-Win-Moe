@@ -4,8 +4,8 @@ public class FloorInBST11 {
 
     /**
      * Binary search
-     * Time complexity: O(log n)
-     * Space complexity: O(log n)
+     * Time complexity: O(n) - goes through all nodes in BST
+     * Space complexity: O(log n) - only stores the necessary elements
      *
      * Time taken: 20-30 minutes
      *

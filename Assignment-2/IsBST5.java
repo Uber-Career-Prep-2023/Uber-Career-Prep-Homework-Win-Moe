@@ -5,10 +5,9 @@ public class IsBST5 {
     /**
      * Depth-first traversal
      * In-order traversal
-     * Time complexity: O(n)
-     * Space complexity: O(n)
-     * <p>
-     * Time taken: 30 minutes
+     * Time complexity: O(n) - goes through every element
+     * Space complexity: O(n) - goes through the tree and adds to a list of size n
+     * Time taken: 20 minutes
      *
      * @param BSTNode
      */
@@ -24,6 +23,7 @@ public class IsBST5 {
         if (node == null) {
             return;
         } else {
+            //  in order traversal
             inOrder(node.left);
             orderedList.add(node.value);
             inOrder(node.right);

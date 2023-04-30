@@ -4,8 +4,8 @@ public class IsPalindrome8 {
     /**
      * meet in the middle doubly linked list forward backward two pointer
      *
-     * Time complexity: O(n)
-     * Space complexity: O(1)
+     * Time complexity: O(n) - iterate through the list from the back and the front
+     * Space complexity: O(1) - no extra space used
      *
      * Time taken: 20 minutes
      *

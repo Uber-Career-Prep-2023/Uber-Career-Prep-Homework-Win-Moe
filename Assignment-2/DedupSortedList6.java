@@ -4,8 +4,8 @@ public class DedupSortedList6 {
     /**
      * reset / catchup two pointer
      *
-     * Time complexity: O(n)
-     * Space complexity: O(n)
+     * Time complexity: O(n) - traverses the list once
+     * Space complexity: O(1) - not sure but it shouldn't be taking up space?
      *
      * Time taken: 20 minutes
      *

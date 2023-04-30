@@ -9,8 +9,8 @@ public class CopyTree4 {
     /**
      * Depth-first traversal
      * Pre-order traversal
-     * Time complexity: O(n)
-     * Space complexity: O(n)
+     * Time complexity: O(n) copying it is linear
+     * Space complexity: O(n) copying it takes linear space because it is a new tree
      *
      * Time taken: 20-30 minutes
      *
@@ -31,6 +31,7 @@ public class CopyTree4 {
         }
         BSTNode newHead = new BSTNode(root.value);
 
+        // pre order traversal
         newHead.left = preOrderCopy(root.left);
         newHead.right = preOrderCopy(root.right);
         return newHead;

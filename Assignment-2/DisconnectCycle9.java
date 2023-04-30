@@ -7,8 +7,8 @@ public class DisconnectCycle9 {
 
     /**
      * Hash the Nodes
-     * Time complexity: O(N)
-     * Space complexity: O(N)
+     * Time complexity: O(N) - iterate through the singlylinkedlist
+     * Space complexity: O(N) - create hashset of nodes
      *
      * Time taken: 15 minutes
      *

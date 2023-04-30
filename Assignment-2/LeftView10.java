@@ -7,8 +7,8 @@ public class LeftView10 {
 
     /**
      * Breadth first - level order traversal
-     * Time complexity: O(n)
-     * Space complexity: O(n)
+     * Time complexity: O(n) - traverse through all nodes
+     * Space complexity: O(n) - store all nodes of levels
      *
      * Time taken: 30 minutes
      */

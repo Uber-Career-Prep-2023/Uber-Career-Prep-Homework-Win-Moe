@@ -4,8 +4,8 @@ public class MoveNthLastToFront7 {
     /**
      * fixed distance two pointer approach
      *
-     * Time complexity: O(n)
-     * Space complexity: O(1)
+     * Time complexity: O(n) - iterate through the list once to find the nth last element
+     * Space complexity: O(1) - constant space
      *
      * Time taken: 20 minutes
      */

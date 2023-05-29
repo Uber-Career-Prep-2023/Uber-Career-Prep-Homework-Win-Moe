@@ -27,6 +27,9 @@ public class Q1GraphAdjacentRep {
      * array<int> topologicalSort(map<int, set<int>> graph);
      */
 
+    public static List<Integer> bfsTracker = new ArrayList<>();
+    public static List<Integer> dfsTracker = new ArrayList<>();
+
     public static Map<Integer, Set<Integer>> adjacencySet(int[][] edges) {
         // input edges from one int to another int in a map
         // by default the output map is empty, int maps to set of integers adjacent to it
@@ -111,6 +114,7 @@ public class Q1GraphAdjacentRep {
 
             // if the number is not visited, add to the queue;
             if (visited.get(nextNum) == false) {
+                bfsTracker.add(nextNum);
                 for (int adjToNextNum : graph.get(nextNum)) {
                     queue.add(adjToNextNum);
                 }
@@ -153,6 +157,10 @@ public class Q1GraphAdjacentRep {
             int nextNum;
             if (stack.isEmpty()) {
                 counter += 1;
+                // if stack is empty and there are no more vertices that means everything is visited.
+                if (counter >= vertices.size()) {
+                    break;
+                }
                 nextNum = vertices.get(counter);
             } else {
                 nextNum = stack.pop();
@@ -165,6 +173,7 @@ public class Q1GraphAdjacentRep {
 
             // if the number is not visited, add to the stack;
             if (visited.get(nextNum) == false) {
+                dfsTracker.add(nextNum);
                 for (int adjToNextNum : graph.get(nextNum)) {
                     stack.add(adjToNextNum);
                 }
@@ -197,6 +206,7 @@ public class Q1GraphAdjacentRep {
         System.out.println("BFS");
         System.out.println();
         bfs(99, graph);
+        System.out.println(bfsTracker);
         bfs(2, null);
         bfs(2, graph);
         bfs(0, graph);
@@ -207,11 +217,28 @@ public class Q1GraphAdjacentRep {
         System.out.println();
         System.out.println("DFS");
         dfs(99, graph);
+        System.out.println(dfsTracker);
         dfs(2, null);
         dfs(2, graph);
         dfs(0, graph);
         dfs(1, graph);
         dfs(3, graph);
         dfs(-88, graph);
+
+        // another test with trinary tree
+        int[][] anotheredges = new int[5][2];
+        anotheredges[0] = new int[]{0,1};
+        anotheredges[1] = new int[]{0,2};
+        anotheredges[2] = new int[]{0,3};
+        anotheredges[3] = new int[]{1,4};
+        anotheredges[4] = new int[]{4,5};
+        Map<Integer, Set<Integer>> anothergraph = adjacencySet(anotheredges);
+
+        bfsTracker = new ArrayList<>();
+        dfsTracker = new ArrayList<>();
+        bfs(99, anothergraph);
+        System.out.println(bfsTracker);
+        dfs(99, anothergraph);
+        System.out.println(dfsTracker);
     }
 }

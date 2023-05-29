@@ -69,12 +69,15 @@ public class Q1GraphAdjacentRep {
     // DFS inputs the adjSet, returns whether the target value is found
     public static boolean bfs(int target, Map<Integer, Set<Integer>> graph) {
         // nullcase
-        if (graph == null) {
-            return false;
-        }
+        if (graph == null) return false;
 
+        // visited, and vertices so that we don't miss any nodes
         Map<Integer, Boolean> visited = new HashMap<>();
         List<Integer> vertices = new ArrayList<>();
+        // queue for nodes to visit
+        boolean allVisited = false;
+        Queue<Integer> queue = new LinkedList<>();
+
 
         for (int i : graph.keySet()) {
             // to check whether not everything is visited;
@@ -85,11 +88,7 @@ public class Q1GraphAdjacentRep {
         }
 
         int counter = 0;
-        int firstNum = vertices.get(0);
-
-        // queue nodes to visit
-        boolean allVisited = false;
-        Queue<Integer> queue = new LinkedList<>();
+        int firstNum = vertices.get(counter);
 
         for (int adjToFirstNum : graph.get(firstNum)) {
             queue.add(adjToFirstNum);
@@ -104,10 +103,12 @@ public class Q1GraphAdjacentRep {
             } else {
                 nextNum = queue.remove();
             }
+
             if (target == nextNum) {
                 System.out.println(true);
                 return true;
             }
+
             // if the number is not visited, add to the queue;
             if (visited.get(nextNum) == false) {
                 for (int adjToNextNum : graph.get(nextNum)) {
@@ -129,6 +130,61 @@ public class Q1GraphAdjacentRep {
         return false;
     }
 
+    public static boolean dfs(int target, Map<Integer, Set<Integer>> graph) {
+        if (graph == null) return false;
+
+        //create visited and the list of vertices
+        Map<Integer, Boolean> visited = new HashMap<>();
+        List<Integer> vertices = new ArrayList<>();
+        // stack for nodes to visit
+        boolean allVisited = false;
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i : graph.keySet()) {
+            visited.put(i, false);
+            vertices.add(i);
+        }
+
+        // this counter is so that we won't miss any nodes in case there are missing links.
+        int counter = 0;
+        int firstNum = vertices.get(counter);
+
+        while (!stack.isEmpty() || !allVisited) {
+            int nextNum;
+            if (stack.isEmpty()) {
+                counter += 1;
+                nextNum = vertices.get(counter);
+            } else {
+                nextNum = stack.pop();
+            }
+
+            if (target == nextNum) {
+                System.out.println(true);
+                return true;
+            }
+
+            // if the number is not visited, add to the stack;
+            if (visited.get(nextNum) == false) {
+                for (int adjToNextNum : graph.get(nextNum)) {
+                    stack.add(adjToNextNum);
+                }
+                visited.put(nextNum, true);
+            }
+
+            // allVisited condition
+            for (int i : visited.keySet()) {
+                allVisited = true;
+                if (visited.get(i) == false) {
+                    allVisited = false;
+                    break;
+                }
+            }
+        }
+
+        System.out.println(false);
+        return false;
+    }
+
     public static void main(String[] args) {
          int[][] edges = new int[5][2];
          edges[0] = new int[]{1,2};
@@ -138,6 +194,8 @@ public class Q1GraphAdjacentRep {
          edges[4] = new int[]{2,0};
         Map<Integer, Set<Integer>> graph = adjacencySet(edges);
 
+        System.out.println("BFS");
+        System.out.println();
         bfs(99, graph);
         bfs(2, null);
         bfs(2, graph);
@@ -145,5 +203,15 @@ public class Q1GraphAdjacentRep {
         bfs(1, graph);
         bfs(3, graph);
         bfs(-88, graph);
+
+        System.out.println();
+        System.out.println("DFS");
+        dfs(99, graph);
+        dfs(2, null);
+        dfs(2, graph);
+        dfs(0, graph);
+        dfs(1, graph);
+        dfs(3, graph);
+        dfs(-88, graph);
     }
 }

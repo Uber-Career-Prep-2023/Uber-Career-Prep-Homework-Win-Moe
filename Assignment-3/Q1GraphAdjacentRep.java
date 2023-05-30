@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Q1GraphAdjacentRep {
     // Question 1: Build an Adjacency List/Set Representation of a Graph
+    // entire question took me around 2 hours esp when learning the process of the visited etc.
 
     /**
      * Given an array of pairs of values representing edges in an unweighted graph,
@@ -194,7 +195,39 @@ public class Q1GraphAdjacentRep {
         return false;
     }
 
+    public static void topSort(Map<Integer, Set<Integer>> graph) {
+        Stack<Integer> stack = new Stack<>();
+        Map<Integer, Boolean> visited = new HashMap<>();
+        List<Integer> vertices = new ArrayList<>();
+        for (int v : graph.keySet()) {
+            visited.put(v, false);
+            vertices.add(v);
+        }
+
+        for (int v : vertices) {
+            if (visited.get(v) == false) {
+                topSortHelper(graph, v, visited, stack);
+            }
+        }
+
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop());
+        }
+    }
+
+    public static void topSortHelper(Map<Integer, Set<Integer>> graph, int v, Map<Integer, Boolean> visited, Stack<Integer> stack) {
+        if (graph.get(v) == null || visited.get(v) == true) return;
+        visited.put(v, true);
+
+        for (int i : graph.get(v)) {
+            topSortHelper(graph, i, visited, stack);
+        }
+
+        stack.push(v);
+    }
+
     public static void main(String[] args) {
+        /*
          int[][] edges = new int[5][2];
          edges[0] = new int[]{1,2};
          edges[1] = new int[]{2,3};
@@ -240,5 +273,16 @@ public class Q1GraphAdjacentRep {
         System.out.println(bfsTracker);
         dfs(99, anothergraph);
         System.out.println(dfsTracker);
+        */
+
+        int[][] topSortTest = new int[6][2];
+        topSortTest[0] = new int[]{5,2};
+        topSortTest[1] = new int[]{5,0};
+        topSortTest[2] = new int[]{4,0};
+        topSortTest[3] = new int[]{4,1};
+        topSortTest[4] = new int[]{2,3};
+        topSortTest[5] = new int[]{3,1};
+        Map<Integer, Set<Integer>> tsGraph = adjacencySet(topSortTest);
+        topSort(tsGraph);
     }
 }

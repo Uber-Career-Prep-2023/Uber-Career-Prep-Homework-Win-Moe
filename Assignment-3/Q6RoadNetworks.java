@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Q6RoadNetworks {
     /**
@@ -25,44 +22,50 @@ public class Q6RoadNetworks {
     // represent all of them in an array and solve it with a disjoint sets array
     // i guess this can be solved in the bfs way too?
 
-    public static int[] roadNetworks(String[] towns, String[][] routes) {
+    public static int roadNetworks(String[] towns, String[][] routes) {
+
         // create an array of towns and assign each an id using a treeset, and represent those in the array
         Map<String, Integer> townId = new HashMap<>();
-        int[] quickUnion = new int[towns.length];
+        int[] id = new int[towns.length];
         for (int i = 0; i < towns.length; i++) {
             townId.put(towns[i], i);
-            quickUnion[i] = -1;
+            id[i] = i;
         }
 
-        for (String[] route : routes) {
-            helperConnect(quickUnion, townId, route[0], route[1]);
+
+        for (int i = 0; i < routes.length; i++) {
+            int townFrom = townId.get(routes[i][0]);
+            int townTo = townId.get(routes[i][1]);
+            connect(id, townFrom, townTo);
         }
 
-        for (int i : quickUnion) {
-            System.out.println(i);
+        Set<Integer> unique = new HashSet<>();
+        for (int ids : id) {
+            unique.add(ids);
         }
-        System.out.println(townId);
-        return quickUnion;
+        System.out.println(unique);
+        return unique.size();
     }
 
-    public static int find(int[] quickUnion, int i) {
-        while (quickUnion[i] >= 0) {
-            i = quickUnion[i];
+    public static void connect(int[] id, int p, int q) {
+        int pid = id[p];
+        int qid = id[q];
+        for (int i = 0; i < id.length; i++){
+            if (id[i] == pid){
+                id[i] = qid;
+            }
         }
-        return i;
     }
-
-    public static void helperConnect(int[] quickUnion, Map<String, Integer> townId, String townFrom, String townTo) {
-        int i = find(quickUnion, townId.get(townFrom));
-        int j = find(quickUnion, townId.get(townTo));
-        quickUnion[i] = j;
-    }
-
     public static void main(String[] args) {
         String[] towns = {"Anchorage", "Skagway", "Juneau", "Gustavus", "Homer", "Port Alsworth", "Glacier Bay", "Fairbanks", "McCarthy", "Copper Center", "Healy"};
         String[][] routes = {{"Anchorage", "Homer"}, {"Glacier Bay", "Gustavus"}, {"Copper Center", "McCarthy"}, {"Anchorage", "Copper Center"}, {"Copper Center", "Fairbanks"}, {"Healy", "Fairbanks"}, {"Healy", "Anchorage"}};
         System.out.println(roadNetworks(towns, routes));
+
+        String[] town = {"ygn", "mdy", "pth", "htd"};
+        String[][] route = {{"ygn","mdy"},{"pth", "htd"}};
+        String[][] route2 = {{"ygn","mdy"},{"htd", "ygn"},{"mdy","pth"}};
+        String[][] route3 = {{"ygn","mdy"},{"pth", "htd"}};
+        System.out.println(roadNetworks(town, route));
+        System.out.println(roadNetworks(town, route2));
     }
-
-
 }

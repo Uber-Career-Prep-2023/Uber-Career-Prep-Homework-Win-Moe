@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Q5FirstKBinaryNumbers {
     /**
      * Given a number, k, return an array of the first k binary numbers, represented as strings.
@@ -12,15 +15,33 @@ public class Q5FirstKBinaryNumbers {
 
     // method used
 
-    public static int[] binNum(int k) {
-        int[] bins = new int[k];
-
-        String currString = "0";
-
-        int currNum = 0;
-        for (int i = 0; i < k; i++) {
-
-        }
-        return null;
+    public static void main(String[] args) {
+        print(fkbn(10));
     }
+
+    public static String[] fkbn(int k) {
+        String[] resultList = new String[k];
+        resultList[0] = "0";
+        Queue<String> queue = new LinkedList<>();
+        queue.add("1");
+
+        for (int i = 1; i < k; i++) {
+            String curr = queue.poll();
+            resultList[i] = curr;
+
+            String zeroAppended = curr + "0";
+            String oneAppended = curr + "1";
+
+            queue.add(curr + "0");
+            queue.add(curr + "1");
+        }
+        return resultList;
+    }
+
+    public static void print(String[] s) {
+        for (String str : s) {
+            System.out.print("***"+str + " ");
+        }
+    }
+
 }

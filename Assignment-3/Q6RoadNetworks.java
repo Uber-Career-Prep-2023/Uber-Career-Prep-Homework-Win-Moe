@@ -39,12 +39,24 @@ public class Q6RoadNetworks {
             connect(id, townFrom, townTo);
         }
 
-        Set<Integer> unique = new HashSet<>();
-        for (int ids : id) {
-            unique.add(ids);
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int ip : id) {
+            if (!map.containsKey(ip)) {
+                map.put(ip, 1);
+            } else {
+                map.put(ip, map.get(ip) + 1);
+            }
+            System.out.println(map);
         }
-        System.out.println(unique);
-        return unique.size();
+
+        int network = 0;
+        for (int j : map.keySet()) {
+            if (map.get(j) > 1) {
+                network++;
+            }
+        }
+
+        return network;
     }
 
     public static void connect(int[] id, int p, int q) {
@@ -65,7 +77,7 @@ public class Q6RoadNetworks {
         String[][] route = {{"ygn","mdy"},{"pth", "htd"}};
         String[][] route2 = {{"ygn","mdy"},{"htd", "ygn"},{"mdy","pth"}};
         String[][] route3 = {{"ygn","mdy"},{"pth", "htd"}};
-        System.out.println(roadNetworks(town, route));
-        System.out.println(roadNetworks(town, route2));
+        //System.out.println(roadNetworks(town, route));
+        //System.out.println(roadNetworks(town, route2));
     }
 }

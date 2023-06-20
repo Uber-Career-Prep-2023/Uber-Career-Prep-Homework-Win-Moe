@@ -1,42 +1,44 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import java.util.*;
 public class Q9MergeKSortedArrays {
     public static List<Integer> sort(int k, List<List<Integer>> intLists) {
-        // selection sort variation;
-        // use hashmap to map the index;
-        boolean complete = false;
-        List<Integer> finalList = new ArrayList<>();
-        Map<List<Integer>, Integer> map = new HashMap<>();
-        int timesToRun = 0;
+        List<Integer> result = new ArrayList<>();
+        Map<List<Integer>, Integer> status = new HashMap<>();
+
         for (List<Integer> li : intLists) {
-            map.put(li, 0);
-            timesToRun += li.size();
+            status.put(li, 0);
         }
+        int min = 0;
+        int minI = -1;
 
-        int min = intLists.get(0).get(map.get(intLists.get(0)));
+        boolean stop = false;
+        while (stop == false) {
+            min = 999999;
+            // check
+            stop = true;
+            for (List<Integer> li : intLists) {
+                if (status.get(li) < li.size()) {
+                    stop = false;
+                }
+            }
 
-        for (int t = 0; t < timesToRun; t++) {
-            int minai = 0;
-            System.out.println(t + " / " + timesToRun);
+            // get the index
             for (int i = 0; i < k; i++) {
-
                 List<Integer> currList = intLists.get(i);
-                if (map.get(currList) < currList.size()) {
-                    // get current index
-                    if (currList.get(map.get(currList)) < min) {
-                        minai = i;
+                if (status.get(currList) < currList.size()) {
+                    if (currList.get(status.get(currList)) < min) {
+                        min = currList.get(status.get(currList));
+                        minI = i;
                     }
                 }
             }
-            List<Integer> minarr = intLists.get(minai);
-            finalList.add(minarr.get(map.get(minarr)));
-            map.put(minarr, map.get(minarr) + 1);
+            if (min == 999999) {
+                break;
+            }
+            result.add(min);
+            status.put(intLists.get(minI), status.get(intLists.get(minI)) + 1);
+            System.out.println(status);
         }
-        System.out.println(finalList);
-        return finalList;
+        return result;
     }
 
     public static void main(String[] args) {
@@ -50,8 +52,8 @@ public class Q9MergeKSortedArrays {
         listOfListOfIntegers.add(list2);
         listOfListOfIntegers.add(list3);
 
-        sort(3, listOfListOfIntegers);
+        List<Integer> sortedList = sort(3, listOfListOfIntegers);
+        System.out.println(sortedList);
     }
-
-
 }
+

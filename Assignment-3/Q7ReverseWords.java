@@ -5,6 +5,8 @@ public class Q7ReverseWords {
     // time complexity: O(n) because it loops once through the array
     // space complexity: O(n) because the stack grows as a result of the string
 
+    // time: pretty fast
+
     public static String reverseWords(String str) {
         // nullcase
         if (str == null || str.length() == 0) {

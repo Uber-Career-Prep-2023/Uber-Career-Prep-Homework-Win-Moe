@@ -1,5 +1,11 @@
 import java.util.*;
 public class Q9MergeKSortedArrays {
+    // used arraylist
+    // time complexity: O(n^2) - sort of like selection sort for multiple arraylists
+    // space complexity: O(n) - perhaps not too much extra space?
+
+    // time: probably like 40 min
+
     public static List<Integer> sort(int k, List<List<Integer>> intLists) {
         List<Integer> result = new ArrayList<>();
         Map<List<Integer>, Integer> status = new HashMap<>();

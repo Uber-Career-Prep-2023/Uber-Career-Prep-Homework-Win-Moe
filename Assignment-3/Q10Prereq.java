@@ -2,17 +2,11 @@ import java.util.*;
 
 // topological sorting using stacks, modified dfs
 // time complexity: O(V+E)
+// space complexity: O(V?) - topsort
+// algorithm: topological sort
+
+// time: didn't take me too long
 public class Q10Prereq {
-    /**
-     * Input: ["Intro to Programming", "Data Structures", "Advanced Algorithms", "Operating Systems", "Databases"],
-     * { "Data Structures": ["Intro to Programming"],
-     * "Advanced Algorithms": ["Data Structures"],
-     * "Operating Systems": ["Advanced Algorithms"],
-     * "Databases": ["Advanced Algorithms"] }
-     *
-     * Output: ["Intro to Programming", "Data Structures", "Advanced Algorithms", "Operating Systems", "Databases"] or
-     * ["Intro to Programming", "Data Structures", "Advanced Algorithms", "Databases", "Operating Systems"]
-     */
 
     // turn it into a graph and use topSort
     public static Map<String, Set<String>> adjacencySet(List<String> courses, Map<String, List<String>> prereqMapping) {

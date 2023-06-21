@@ -13,7 +13,11 @@ public class Q5FirstKBinaryNumbers {
      * Output: ["0", "1", "10", "11", "100", "101", "110", "111", "1000", "1001"]
      */
 
-    // method used
+    // method used: Queue
+    // time complexity: O(1) there is only insertion and deletion
+    // space complexity: O(n) a queue is like this
+
+    // time: took me a while
 
     public static void main(String[] args) {
         print(fkbn(10));

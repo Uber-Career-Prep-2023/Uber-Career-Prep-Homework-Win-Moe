@@ -18,9 +18,14 @@ public class Q6RoadNetworks {
      * Output: 2 (Networks are Kona-Hilo-Volcano, Haiku-Kahului-Lahaina-Hana, and Lihue-Waimea-Princeville)
      */
 
-    // algorithm: quick union
+    // algorithm: quick find using hashmap
+    // time complexity: O(n) - for loops and hashmap worst case
+    // space complexity: O(n) - hashmap uses up linear space
+
     // represent all of them in an array and solve it with a disjoint sets array
     // i guess this can be solved in the bfs way too?
+
+    // time: getting to it took long but quick find itself was very fast
 
     public static int roadNetworks(String[] towns, String[][] routes) {
 

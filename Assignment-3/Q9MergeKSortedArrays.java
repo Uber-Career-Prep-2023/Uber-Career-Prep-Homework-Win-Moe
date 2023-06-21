@@ -12,7 +12,7 @@ public class Q9MergeKSortedArrays {
 
         boolean stop = false;
         while (stop == false) {
-            min = 999999;
+            min = Integer.MAX_VALUE;
             // check
             stop = true;
             for (List<Integer> li : intLists) {
@@ -31,7 +31,7 @@ public class Q9MergeKSortedArrays {
                     }
                 }
             }
-            if (min == 999999) {
+            if (min == Integer.MAX_VALUE) {
                 break;
             }
             result.add(min);

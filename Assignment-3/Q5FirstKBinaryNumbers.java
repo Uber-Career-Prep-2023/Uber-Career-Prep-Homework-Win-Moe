@@ -24,6 +24,11 @@ public class Q5FirstKBinaryNumbers {
     }
 
     public static String[] fkbn(int k) {
+        // invalid case
+        if (k < 1) {
+            return null;
+        }
+
         String[] resultList = new String[k];
         resultList[0] = "0";
         Queue<String> queue = new LinkedList<>();

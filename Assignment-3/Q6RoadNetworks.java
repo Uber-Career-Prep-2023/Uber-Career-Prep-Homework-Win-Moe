@@ -28,6 +28,9 @@ public class Q6RoadNetworks {
     // time: getting to it took long but quick find itself was very fast
 
     public static int roadNetworks(String[] towns, String[][] routes) {
+        if (towns.length == 0) {
+            return -1;
+        }
 
         // create an array of towns and assign each an id using a treeset, and represent those in the array
         Map<String, Integer> townId = new HashMap<>();

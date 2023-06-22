@@ -1,5 +1,11 @@
 import java.util.*;
 
+// NOT DONE
+// algorithm used - modified BFS
+// time complexity - O(V+E) bfs
+// space complexity - O(V) bfs
+
+// time: not too long, maybe 30 min, still need to work
 public class Q11VacationDestinations {
     public static class Edge {
         public String origin;
@@ -13,6 +19,11 @@ public class Q11VacationDestinations {
     }
 
     public static int vacDest(List<Edge> edgeList, String origin, double k) {
+        //nullcases
+        if (edgeList == null || origin == null || k < 1) {
+            return -1;
+        }
+
         int count = 0;
         Map<String, Boolean> visited = new HashMap<>();
         Queue<String> queue = new LinkedList<>();
@@ -20,8 +31,8 @@ public class Q11VacationDestinations {
         for (Edge e : edgeList) {
             visited.put(e.origin, false);
             visited.put(e.destination, false);
-            distances.put(e.origin, 0.0);
-            distances.put(e.destination, 0.0);
+            distances.put(e.origin, k);
+            distances.put(e.destination, k);
         }
 
         distances.put(origin, 0.0);
@@ -73,6 +84,8 @@ public class Q11VacationDestinations {
         System.out.println(vacDest(eList, "New York", 5));
         System.out.println(vacDest(eList, "New York", 7));
         System.out.println(vacDest(eList, "New York", 8));
+        System.out.println(vacDest(eList, "New York", 0));
+        System.out.println(vacDest(eList, "New York", -1));
 
     }
 }

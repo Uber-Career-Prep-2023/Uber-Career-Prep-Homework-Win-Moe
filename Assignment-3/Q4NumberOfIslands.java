@@ -10,6 +10,10 @@ public class Q4NumberOfIslands {
     // time: leetcode took me a while
 
     public static int numOfIslands(int[][] arr) {
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+
         int islands = 0;
         boolean[][] visited = new boolean[arr.length][arr[0].length];
         for (int i = 0; i < arr.length; i++) {

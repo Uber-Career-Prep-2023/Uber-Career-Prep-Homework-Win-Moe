@@ -47,14 +47,12 @@ public class Q11VacationDestinations {
                 if (toVisit.equals(e.origin) && visited.get(e.destination) == false && (distances.get(e.destination) - e.distance) > 0) {
                     queue.offer(e.destination);
                     distances.put(e.destination, (distances.get(e.destination) - e.distance - 1));
-                    System.out.println(distances);
                     visited.put(e.destination, true);
                     count += 1;
                 }
                 if (toVisit.equals(e.destination) && visited.get(e.origin) == false && (distances.get(e.origin) - e.distance) > 0) {
                     queue.offer(e.origin);
                     distances.put(e.origin, (distances.get(e.origin)) - e.distance - 1);
-                    System.out.println(distances);
                     visited.put(e.origin, true);
                     count += 1;
                 }

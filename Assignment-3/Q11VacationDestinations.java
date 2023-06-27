@@ -31,8 +31,8 @@ public class Q11VacationDestinations {
         for (Edge e : edgeList) {
             visited.put(e.origin, false);
             visited.put(e.destination, false);
-            distances.put(e.origin, k);
-            distances.put(e.destination, k);
+            distances.put(e.origin, 0.0);
+            distances.put(e.destination, 0.0);
         }
 
         distances.put(origin, 0.0);
@@ -41,21 +41,20 @@ public class Q11VacationDestinations {
 
         while (!queue.isEmpty()) {
             String toVisit = queue.poll();
-            System.out.println(toVisit);
 
             for (Edge e : edgeList) {
-                if (toVisit.equals(e.origin) && visited.get(e.destination) == false && (distances.get(e.destination) - e.distance) > 0) {
+                if (toVisit.equals(e.origin) && visited.get(e.destination) == false && (distances.get(e.destination) + e.distance) < k) {
                     queue.offer(e.destination);
-                    distances.put(e.destination, (distances.get(e.destination) - e.distance - 1));
-                    visited.put(e.destination, true);
+                    distances.put(e.destination, (distances.get(e.destination) + e.distance + 1));
                     count += 1;
                 }
-                if (toVisit.equals(e.destination) && visited.get(e.origin) == false && (distances.get(e.origin) - e.distance) > 0) {
+                if (toVisit.equals(e.destination) && visited.get(e.origin) == false && (distances.get(e.origin) + e.distance) < k) {
                     queue.offer(e.origin);
-                    distances.put(e.origin, (distances.get(e.origin)) - e.distance - 1);
-                    visited.put(e.origin, true);
+                    distances.put(e.origin, (distances.get(e.origin)) + e.distance + 1);
                     count += 1;
                 }
+                visited.put(e.destination, true);
+                visited.put(e.origin, true);
             }
         }
 

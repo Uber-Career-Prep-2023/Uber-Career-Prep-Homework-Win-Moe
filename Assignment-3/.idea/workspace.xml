@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="68941767-ec5e-484b-90c9-e6116b04690f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Assignment-3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FirstKBinaryNumbers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCPractice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LCTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q10Prereq.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q1GraphAdjacentRep.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q2Heap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q3PriorityQueue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q4NumberOfIslands.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q5FirstKBinaryNumbers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q6RoadNetworks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q7ReverseWords.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q9MergeKSortedArrays.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/.idea/Assignment-3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/FirstKBinaryNumbers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/LCTest$Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/LCTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q10Prereq.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q11VacationDestinations$Edge.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q1GraphAdjacentRep.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q2Heap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q3PriorityQueue$Pair.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q3PriorityQueue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q4NumberOfIslands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q5FirstKBinaryNumbers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q6RoadNetworks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q7ReverseWords.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q8AlternatingPath$Edge.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q8AlternatingPath$Info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q8AlternatingPath$Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q9MergeKSortedArrays.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-4/Q4Catalan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-4/Q4Catalan.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2PlZmXoJLrJ17uRO5oGFVeCbFD4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/frankwin/Desktop/Uber-Career-Prep-Homework-Win-Moe/Assignment-3&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.LCPractice">
+    <configuration name="LCPractice" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LCPractice" />
+      <module name="Assignment-3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LCTest$Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LCTest$Solution" />
+      <module name="Assignment-3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q11VacationDestinations" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q11VacationDestinations" />
+      <module name="Assignment-3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q6RoadNetworks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q6RoadNetworks" />
+      <module name="Assignment-3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q8AlternatingPath" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Q8AlternatingPath" />
+      <module name="Assignment-3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LCPractice" />
+        <item itemvalue="Application.Q11VacationDestinations" />
+        <item itemvalue="Application.Q8AlternatingPath" />
+        <item itemvalue="Application.LCTest$Solution" />
+        <item itemvalue="Application.Q6RoadNetworks" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68941767-ec5e-484b-90c9-e6116b04690f" name="Changes" comment="" />
+      <created>1684033787126</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684033787126</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.NoSuchElementException" package="java.util" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="java-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Q8AlternatingPath$Info" memberName="length" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

@@ -35,61 +35,48 @@ public class Q8AlternatingPath {
 
     public static int altPath(Map<String, List<String>> redEdges, Map<String, List<String>> blueEdges, String origin, String dest) {
         Queue<Info> queue = new LinkedList<>();
-        Map<String, Set<Boolean>> visited = new HashMap<>();
-        for (String s : redEdges.keySet()) {
-            visited.put(s, new HashSet<>());
-        }
-        for (String ss : blueEdges.keySet()) {
-            visited.put(ss, new HashSet<>());
-        }
+        Map<String, Integer> visitedRed = new HashMap<>();
+        Map<String, Integer> visitedBlue = new HashMap<>();
 
-        int lowest = Integer.MAX_VALUE;
-
-        Info first = new Info(true, origin, 1);
-        Info second = new Info(false, origin, 1);
+        Info first = new Info(true, origin, 0);
+        Info second = new Info(false, origin, 0);
         queue.add(first);
         queue.add(second);
-        visited.get(origin).add(true);
-        visited.get(origin).add(false);
 
-        while (queue.size() > 0) {
-            Info toPop = queue.poll();
-            boolean red = toPop.red;
-            String node = toPop.node;
-            int length = toPop.length;
+        while (!queue.isEmpty()) {
+            Info current = queue.poll();
+            boolean isRed = current.red;
+            String node = current.node;
+            int length = current.length;
 
-            if (!red && redEdges.get(node) != null) {
-                for (String r : redEdges.get(node)) {
-                    if (visited.get(r).size() < 2) {
-                        System.out.println(node + " to " + r + " red");
-                        if (r.equals(dest)) {
-                            lowest = length;
-                        }
-                        visited.get(r).add(true);
-                        queue.add(new Info(!red, r, length + 1));
-                    }
-                }
+            if (node.equals(dest)) {
+                return length;
             }
 
-            if (red && blueEdges.get(node) != null) {
-                for (String b : blueEdges.get(node)) {
-                    if (visited.get(b).size() < 2) {
-                        System.out.println(node + " to " + b + " blue");
-                        if (b.equals(dest)) {
-                            lowest = length;
+            if (isRed) {
+                if (redEdges.get(node) != null) {
+                    for (String r : redEdges.get(node)) {
+                        if (!visitedRed.containsKey(r) || visitedRed.get(r) > length + 1) {
+                            visitedRed.put(r, length + 1);
+                            queue.add(new Info(!isRed, r, length + 1));
                         }
-                        visited.get(b).add(false);
-                        queue.add(new Info(red, b, length + 1));
+                    }
+                }
+            } else {
+                if (blueEdges.get(node) != null) {
+                    for (String b : blueEdges.get(node)) {
+                        if (!visitedBlue.containsKey(b) || visitedBlue.get(b) > length + 1) {
+                            visitedBlue.put(b, length + 1);
+                            queue.add(new Info(!isRed, b, length + 1));
+                        }
                     }
                 }
             }
         }
-
-        if (lowest == Integer.MAX_VALUE) {
-            return -1;
-        }
-        return lowest;
+        return -1;
     }
+
+
     public static void main(String[] args) {
         /*
         [(A, B, "blue"), (A, C, "red"), (B, D, "blue"), (B, E, "blue"), (C, B, "red"), (D, C, "blue"), (A, D, "red"), (D, E, "red"), (E, C, "red")]
@@ -101,21 +88,20 @@ Input: origin = E, destination = D
 Output: -1 (only path is: E→C (red), C→B (red), B→D (blue))
          */
 
-        Map<String, List<String>> redEdge = new HashMap<>();
-        Map<String, List<String>> blueEdge = new HashMap<>();
-        redEdge.put("A", Arrays.asList("C"));
-        redEdge.put("C", Arrays.asList("B"));
-        redEdge.put("A", Arrays.asList("D"));
-        redEdge.put("D", Arrays.asList("E"));
-        redEdge.put("E", Arrays.asList("C"));
-        blueEdge.put("A", Arrays.asList("B"));
-        blueEdge.put("B", Arrays.asList("D"));
-        blueEdge.put("B", Arrays.asList("E"));
-        blueEdge.put("D", Arrays.asList("C"));
-        blueEdge.put("A", Arrays.asList("B"));
+        Map<String, List<String>> redEdges = new HashMap<>();
+        Map<String, List<String>> blueEdges = new HashMap<>();
 
-        System.out.println(altPath(redEdge, blueEdge, "A", "E"));
-        System.out.println(altPath(redEdge, blueEdge, "E", "D"));
+        redEdges.put("A", new ArrayList<>(Arrays.asList("C", "D")));
+        redEdges.put("C", new ArrayList<>(Arrays.asList("B")));
+        redEdges.put("D", new ArrayList<>(Arrays.asList("E")));
+        redEdges.put("E", new ArrayList<>(Arrays.asList("C")));
+
+        blueEdges.put("A", new ArrayList<>(Arrays.asList("B")));
+        blueEdges.put("B", new ArrayList<>(Arrays.asList("D", "E")));
+        blueEdges.put("D", new ArrayList<>(Arrays.asList("C")));
+
+        System.out.println(altPath(redEdges, blueEdges, "A", "E")); // Should output 4
+        System.out.println(altPath(redEdges, blueEdges, "E", "D")); // Should output -1
     }
 }
 

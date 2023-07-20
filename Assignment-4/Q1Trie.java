@@ -38,7 +38,7 @@ class Trie {
     }
 
     // temp getting numbers
-    private int charToInt(char c) {
+    public int charToInt(char c) {
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
         // loop through see which index character is, if not throw error
         for (int i = 0; i < alphabet.length(); i++) {
@@ -49,7 +49,7 @@ class Trie {
         throw new RuntimeException("Invalid character in trie");
     }
 
-    private TrieNode root = new TrieNode();
+    public TrieNode root = new TrieNode();
     public void insert(String word) {
         if (word == null || word.length() == 0) {
             return;

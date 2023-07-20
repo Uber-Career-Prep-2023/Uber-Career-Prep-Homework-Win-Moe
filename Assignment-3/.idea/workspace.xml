@@ -5,46 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68941767-ec5e-484b-90c9-e6116b04690f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Assignment-3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FirstKBinaryNumbers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LCPractice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LCTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q10Prereq.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q1GraphAdjacentRep.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q2Heap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q3PriorityQueue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q4NumberOfIslands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q5FirstKBinaryNumbers.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q6RoadNetworks.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q7ReverseWords.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Q9MergeKSortedArrays.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/.idea/Assignment-3.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/FirstKBinaryNumbers.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/LCTest$Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/LCTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q10Prereq.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q11VacationDestinations$Edge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q1GraphAdjacentRep.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q2Heap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q3PriorityQueue$Pair.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q3PriorityQueue.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q4NumberOfIslands.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q5FirstKBinaryNumbers.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q6RoadNetworks.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q7ReverseWords.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q8AlternatingPath$Edge.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q8AlternatingPath$Info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q8AlternatingPath$Node.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment-3/Q9MergeKSortedArrays.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assignment-4/Q4Catalan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-4/Q4Catalan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment-4/Q5MinCostStairClimbing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Assignment-4/Q6WordBreak.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-4/Q1Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-4/Q1Trie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assignment-4/Q3RunningMedian.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Assignment-4/Q3RunningMedian.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

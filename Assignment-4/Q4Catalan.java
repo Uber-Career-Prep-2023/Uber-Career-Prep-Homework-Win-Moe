@@ -5,17 +5,21 @@ import java.util.Map;
 
 public class Q4Catalan {
     /*
-    Question 4: Catalan Numbers
-The Catalan numbers are a mathematical sequence of numbers.
-The nth Catalan number is defined as (2n)! / (n+1)!n!.
-Given a non-negative integer n, return the Catalan numbers 0-n.
+    Technique: Memoization because we are storing what has already been calculated before
+    Time complexity: O(n), we are calculating factorials with a while loop
+    Space Complexity: O(n) since hashmap uses linear space
 
-Examples:
-Input: 1
-Output: 1, 1
+        Question 4: Catalan Numbers
+    The Catalan numbers are a mathematical sequence of numbers.
+    The nth Catalan number is defined as (2n)! / (n+1)!n!.
+    Given a non-negative integer n, return the Catalan numbers 0-n.
 
-Input: 5
-Output: 1, 1, 2, 5, 14, 42
+    Examples:
+    Input: 1
+    Output: 1, 1
+
+    Input: 5
+    Output: 1, 1, 2, 5, 14, 42
      */
     Map<Integer, Integer> calculated = new HashMap<>();
     // use dynamically programming

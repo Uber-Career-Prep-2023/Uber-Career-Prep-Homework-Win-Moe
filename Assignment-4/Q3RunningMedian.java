@@ -1,6 +1,12 @@
 import java.util.PriorityQueue;
 
 public class Q3RunningMedian {
+    /*
+    Technique: Priority Queue, keep track of current median
+    Time Complexity: O(n*m) where n is the length of the queue for insertions, and m is how many times it is executed
+    Space Complexity: O(n) where n is how many times the function is run, therefore the size of the array, and we copy the pq everytime
+
+     */
     PriorityQueue<Integer> pq = new PriorityQueue<>();
     public double runningMedian(int num) {
         pq.add(num);

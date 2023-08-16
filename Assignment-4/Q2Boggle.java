@@ -4,6 +4,11 @@ import java.util.List;
 import java.util.Set;
 
 public class Q2Boggle {
+    /*
+    Technique: Trie as a parameter
+    Time Complexity: O(n^m + m^n) where n is length of arr, because it could be checking every possible combination and direction
+    Space Complexity: O(m*n) where m is length of arr, n is length of arr[0]
+     */
     public Set<String> boggle(char[][] board, Set<String> dictionary) {
         Set<String> results = new HashSet<>();
         if (board == null) {

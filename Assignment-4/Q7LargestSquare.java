@@ -1,6 +1,9 @@
 public class Q7LargestSquare {
     // Question 7: LargestSquareOf1s
     // Given a square matrix of 0s and 1s, find the dimension of the largest square consisting only of 1s.
+    // Technique: Tabulation store the results of lower lengths until we reach the largest
+    // Time complexity: I believe it would be O(n^2) since there are two for loops
+    // space complexity: O(n) since it only stores the array
     public int largestSquare(int[][] arr) {
         int n = arr.length;
         int[][] dp = new int[n][n];

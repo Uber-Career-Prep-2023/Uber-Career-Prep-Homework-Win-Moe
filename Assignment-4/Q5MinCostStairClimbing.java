@@ -3,7 +3,9 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 public class Q5MinCostStairClimbing {
-    // how to make this dynamic programming`
+    // Technique: PriorityQueue, ideally would try DP, but couldn't
+    // Time Complexity: O(2^n), because as there are more steps there are exponentially 2x more every step
+    // Space complexity: O(n) because the priority queue only takes up that much space
     /*
     Question 5: MinCostStairClimbing
 A staircase on a hiking trail implements a rather unusual toll system to cover trail maintenance costs.

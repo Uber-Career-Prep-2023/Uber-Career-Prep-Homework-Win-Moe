@@ -3,6 +3,9 @@ import java.util.Map;
 
 public class Q9AdoptAPet {
     private Map<String[], Integer> typeToDays;
+    // technique: hashmap and save state
+    // time complexity: O(n*m) where n is the size of the map, and m is how  many times the function is called
+    // space complexity: O(n) where it is the size of how many pets there are
 
     public Q9AdoptAPet(Map<String[], Integer> userInput) {
         typeToDays = userInput;

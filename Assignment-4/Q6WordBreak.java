@@ -2,6 +2,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Q6WordBreak {
+    // Technique: Trie as a parameter, as I go through the words even if theyre different
+    // Time complexity: O(n^n) each letter may be matching, so we have to go that many times
+    // Space complexity: O(n^n) we are storing each 32 characters for each letter for a separate array everytime using a lot of space.
     public boolean wordBreak(Set<String> dict, String word) {
 
         Q1Trie trie = new Q1Trie();
